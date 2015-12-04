@@ -21,7 +21,9 @@ function youLose() {  // Secret: Get to 1000 points
   document.getElementById("scoretext").innerHTML = score;
 }
 // Initializer
-function initAll(picname, scorename="Score: ", width=200) {
+function initAll(picname, scorename, width) {
+  scorename = typeof scorename !== 'undefined' ? scorename : 'Score: ';
+  width = typeof width !== 'undefined' ? width : 200;
   var x = document.createElement("IMG");
   x.setAttribute("src", picname);
   x.setAttribute("width", width);
