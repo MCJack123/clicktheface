@@ -67,3 +67,35 @@ name: Name of addon to sell.
 Create a sample addon, Clicker, that costs 15 points and gives 3 points every 5 seconds.
 
 buy: Boolean specifying if one Clicker should be bought on run.
+
+## Variables and Objects
+
+I have a few variables and objects that can be accessed for any need.
+
+score: The score.
+
+#### addons: A complex object containing all the addon information.
+
+Structure:
+
+addons {
+
+  addons.all - Array containing all the names of the addons. Item 0 is the number of addons. Other items are the names.
+  
+  addons.name - The actual addon data. Replace name with the name of your addon.
+  
+    addons.name.displayname - Useless object with the name of the addon.
+    
+    addons.name.price - Price of the addon.
+    
+    addons.name.runFuncOnClick - Run a function on every repeat?
+    
+    addons.name.timePerClick - Time between each function or points.
+    
+    addons.name.clickFunction - if runFuncOnClick is true, function to be run after timePerClick ms.
+    
+    or
+    
+    addons.name.timeValue - Points given per timePerClick.
+    
+}
