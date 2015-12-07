@@ -1,11 +1,15 @@
 var score = 0;
 var audio = new Audio('onClickSound.mp3');
+gblScoreMax = -1;
 // Game function
-function doClick() {  // When you click the picture
+function doClick(scoremax) {  // When you click the picture
+  scoremax = typeof scoremax !== 'undefined' ? scoremax : 100000;
+  if (gblScoreMax == -1) gblScoreMax = scoremax;
   score = score + 3;
-  if (score > 1000) document.write("Why are you still clicking?");
+  if (score > scoremax) document.write("Why are you still clicking?");
   document.getElementById("scoretext").innerHTML = score;
   audio.play();
+  if (score < 0) brokenGame();
 }
 // Secrets
 function youWin() {  // Secret: Win the game
@@ -16,7 +20,7 @@ function youWin() {  // Secret: Win the game
   document.write("With a score of: " + score);
 }
 function youLose() {  // Secret: Get to 1000 points
-  score = 999;
+  score = gblScoreMax - 1;
   audio.play();
   document.getElementById("scoretext").innerHTML = score;
 }
@@ -37,4 +41,8 @@ function initAll(picname, scorename, width) {
   document.body.appendChild(z);
   document.getElementById("name").innerHTML = scorename;
   document.getElementById("scoretext").innerHTML = score;
+  setInterval(function() {document.getElementById("scoretext").innerHTML = score; }, 1);
+}
+function brokenGame() {
+	document.write("HOW??????????? WHA????????? HMMM?????????");
 }
