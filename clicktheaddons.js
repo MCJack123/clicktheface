@@ -51,3 +51,13 @@ else {alert("You cannot sell 0 " + name + "s for faces."); return false; }
 }
 // Example addon
 function createSampleAddon(buy) {if (score < 0) brokenGame(); newAddon("Clicker", 15, false, 3, 5); if (buy) buyAddon("Clicker"); }
+function loadConfig() {
+ var incode = <?php include "cta-config.inc"; loadFile("cta-config.csv");>;
+ incode.split("|");
+ var i = 1;
+ while (i <= incode.length) {
+  incode[i-1].split(",");
+  i++
+ }
+ 
+}
