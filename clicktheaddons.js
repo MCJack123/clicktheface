@@ -52,12 +52,28 @@ else {alert("You cannot sell 0 " + name + "s for faces."); return false; }
 // Example addon
 function createSampleAddon(buy) {if (score < 0) brokenGame(); newAddon("Clicker", 15, false, 3, 5); if (buy) buyAddon("Clicker"); }
 function loadConfig() {
- var incode = <?php include "cta-config.inc"; loadFile("cta-config.csv");>;
+ var incode = <?php >;
  incode.split("|");
  var i = 1;
  while (i <= incode.length) {
   incode[i-1].split(",");
-  i++
+  i++;
  }
- 
+ i = 0;
+ var name = "";
+ while (i < incode.length) {
+  name = incode[i][0];
+  addons[name] = new Object();
+  addons[name].displayName = name;
+  addons[name].price = incode[i][1];
+  addons[name].runFuncOnClick = false;
+  addons[name].timeValue = incode[i][2];
+  addons[name].timePerClick = incode[i][3] * 1000;
+  userdatabase[name] = new Object();
+  userdatabase[name].bought = 0;
+  userdatabase[name].customPrice = incode[i][1];
+  userdatabase[name].interval = new Array(99);
+  addons.all[0] += 1;
+  addons.all[addons.all[0]] = name;
+ }
 }
