@@ -1,3 +1,3 @@
-name,price,useFunc,onClick,time
-Clicker,15,false,3,5
-Grandma,100,false,.6,2
+name,price,onClick,time
+Clicker,15,3,5
+Grandma,100,.6,2
